@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PLI Quotation Dashboard</title>
+  <link rel="stylesheet" href="src/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <div class="shield">PLI</div>
+      <div>
+        <h1>PLI QUOTATION DASHBOARD</h1>
+        <p>Postal Life Insurance — Endowment Assurance</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Customer Details</h2>
+      <label>Customer Name <input id="custName" /></label>
+      <label>Age <input id="custAge" type="number" min="18" max="55" /></label>
+      <label>Premium Frequency
+        <select id="frequency">
+          <option value="monthly">Monthly</option>
+          <option value="quarterly">Quarterly</option>
+          <option value="halfyearly">Half-Yearly</option>
+          <option value="yearly">Yearly</option>
+        </select>
+      </label>
+      <label>Affordable Premium Amount <input id="budget" type="number" min="1" /></label>
+      <label>Preferred Maturity Age (optional) <input id="preferredMaturity" type="number" /></label>
+      <button id="calculateBtn" class="primary">Calculate Quotation</button>
+    </section>
+
+    <section id="results" class="card" hidden>
+      <h2>PLI Quotation Result</h2>
+      <div id="alternateFrequencies">Alternate Frequency: 
+        <button data-freq="monthly">Monthly</button>
+        <button data-freq="quarterly">Quarterly</button>
+        <button data-freq="halfyearly">Half-Yearly</button>
+        <button data-freq="yearly">Yearly</button>
+      </div>
+
+      <table id="resultTable" class="result-table">
+        <thead><tr><th>Maturity Age</th><th><span id="freqLabel">Monthly</span> Scheme Amount</th><th>Maturity Value</th><th>Sum Assured</th></tr></thead>
+        <tbody></tbody>
+      </table>
+
+      <div class="share-section">
+        <h3>Share this Quotation</h3>
+        <button id="waText" class="green">🟢 WhatsApp – TEXT</button>
+        <button id="waImage" class="blue">🔵 WhatsApp – IMAGE</button>
+        <button id="copyText">Copy Text</button>
+        <a id="downloadImage" download="PLI-quotation.png" style="display:none;">Save / Download Quotation Image</a>
+      </div>
+
+    </section>
+
+    <section class="card">
+      <h2>Factor Tables</h2>
+      <div class="tables-controls">
+        <button data-table="monthly">Monthly</button>
+        <button data-table="quarterly">Quarterly</button>
+        <button data-table="halfyearly">Half-Yearly</button>
+        <button data-table="yearly">Yearly</button>
+      </div>
+      <pre id="factorsView" class="factors-view"></pre>
+    </section>
+
+    <section class="card small">
+      <h3>Adviser Profile</h3>
+      <label>Adviser Name <input id="advName" /></label>
+      <label>Adviser Contact <input id="advContact" /></label>
+      <label>Password <input id="advPassword" type="password" /></label>
+      <button id="saveAdv">Save Profile</button>
+    </section>
+
+    <footer class="card">
+      <small>Indicative quotation only and subject to applicable India Post PLI rules and final acceptance.</small>
+    </footer>
+  </main>
+
+  <script type="module" src="src/app.js"></script>
+</body>
+</html>
